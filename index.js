@@ -72,7 +72,7 @@ app.post("/validate", async (req, res) => {
         return res.status(400).json({ msg: "Transaction is not legit!" });
     }
 
-    if (!name || !email || !phoneNumber || !amount) {
+    if (!name || !phoneNumber || !amount) {
         return res.status(400).json({ msg: "All fields are required" });
     }
 
