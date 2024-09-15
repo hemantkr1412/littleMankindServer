@@ -22,6 +22,9 @@ const userSchema = new mongoose.Schema({
     phoneNumber: { type: String, required: true },
     panCard: { type: String, required: false },
     amount: { type: String, required: true },
+    razorpay_order_id:{ type: String, required: true },
+    razorpay_payment_id:{ type: String, required: true },
+    razorpay_signature:{ type: String, required: true },
 });
 
 // Create a model from the schema
@@ -78,7 +81,11 @@ app.post("/validate", async (req, res) => {
         email,
         phoneNumber,
         panCard,
-        amount
+        amount,
+        razorpay_order_id,
+        razorpay_payment_id,
+        razorpay_signature
+
     });
 
     await user.save();
